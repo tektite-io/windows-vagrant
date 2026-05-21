@@ -9,6 +9,10 @@ MAKEFLAGS+= --no-builtin-variables
 #export PACKER_CONFIG_DIR:= $(HOME)/Projects/packer-plugin-windows-update/dist/test
 #export PACKER_PLUGIN_PATH:= $(HOME)/Projects/packer-plugin-windows-update/dist/test/plugins
 
+# ensure the temporary files are created in the tmp local directory; instead
+# of a small tmpfs, like in ubuntu 26.04.
+export TMPDIR?= ${PWD}/tmp
+
 # NB execute windows-evaluation-isos-update.sh to update windows-evaluation-isos.json.
 WINDOWS_11_ISO_URL?= $(shell jq -r '.["windows-11"].url' windows-evaluation-isos.json)
 WINDOWS_11_ISO_CHECKSUM?= sha256:$(shell jq -r '.["windows-11"].checksum' windows-evaluation-isos.json)
