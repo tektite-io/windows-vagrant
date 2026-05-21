@@ -16,6 +16,8 @@ export TMPDIR?= ${PWD}/tmp
 # NB execute windows-evaluation-isos-update.sh to update windows-evaluation-isos.json.
 WINDOWS_11_ISO_URL?= $(shell jq -r '.["windows-11"].url' windows-evaluation-isos.json)
 WINDOWS_11_ISO_CHECKSUM?= sha256:$(shell jq -r '.["windows-11"].checksum' windows-evaluation-isos.json)
+WINDOWS_11_IOT_ISO_URL?= $(shell jq -r '.["windows-11-iot"].url' windows-evaluation-isos.json)
+WINDOWS_11_IOT_ISO_CHECKSUM?= sha256:$(shell jq -r '.["windows-11-iot"].checksum' windows-evaluation-isos.json)
 WINDOWS_2022_ISO_URL?= $(shell jq -r '.["windows-2022"].url' windows-evaluation-isos.json)
 WINDOWS_2022_ISO_CHECKSUM?= sha256:$(shell jq -r '.["windows-2022"].checksum' windows-evaluation-isos.json)
 WINDOWS_2025_ISO_URL?= $(shell jq -r '.["windows-2025"].url' windows-evaluation-isos.json)
@@ -23,6 +25,8 @@ WINDOWS_2025_ISO_CHECKSUM?= sha256:$(shell jq -r '.["windows-2025"].checksum' wi
 
 export WINDOWS_11_ISO_URL:= $(WINDOWS_11_ISO_URL)
 export WINDOWS_11_ISO_CHECKSUM:= $(WINDOWS_11_ISO_CHECKSUM)
+export WINDOWS_11_IOT_ISO_URL:= $(WINDOWS_11_IOT_ISO_URL)
+export WINDOWS_11_IOT_ISO_CHECKSUM:= $(WINDOWS_11_IOT_ISO_CHECKSUM)
 export WINDOWS_2022_ISO_URL:= $(WINDOWS_2022_ISO_URL)
 export WINDOWS_2022_ISO_CHECKSUM:= $(WINDOWS_2022_ISO_CHECKSUM)
 export WINDOWS_2025_ISO_URL:= $(WINDOWS_2025_ISO_URL)
@@ -35,6 +39,8 @@ IMAGES+= windows-2025
 IMAGES+= windows-2025-uefi
 IMAGES+= windows-11-24h2
 IMAGES+= windows-11-24h2-uefi
+IMAGES+= windows-11-iot-24h2
+IMAGES+= windows-11-iot-24h2-uefi
 
 # Proxmox images.
 PROXMOX_IMAGES+= windows-2022
@@ -43,11 +49,14 @@ PROXMOX_IMAGES+= windows-2025
 PROXMOX_IMAGES+= windows-2025-uefi
 PROXMOX_IMAGES+= windows-11-24h2
 PROXMOX_IMAGES+= windows-11-24h2-uefi
+PROXMOX_IMAGES+= windows-11-iot-24h2
+PROXMOX_IMAGES+= windows-11-iot-24h2-uefi
 
 # Hyper-V images.
 HYPERV_IMAGES+= windows-2022
 HYPERV_IMAGES+= windows-2025
 HYPERV_IMAGES+= windows-11-24h2
+HYPERV_IMAGES+= windows-11-iot-24h2
 
 # vSphere images.
 VSPHERE_IMAGES+= windows-2022
@@ -55,6 +64,7 @@ VSPHERE_IMAGES+= windows-2022-uefi
 VSPHERE_IMAGES+= windows-2025
 VSPHERE_IMAGES+= windows-2025-uefi
 VSPHERE_IMAGES+= windows-11-24h2-uefi
+VSPHERE_IMAGES+= windows-11-iot-24h2-uefi
 
 # Generate the build-* targets.
 LIBVIRT_BUILDS= $(addsuffix -libvirt,$(addprefix build-,$(IMAGES)))

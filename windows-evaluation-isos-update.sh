@@ -5,6 +5,7 @@ set -euo pipefail
 
 windows_names=(
     windows-11
+    windows-11-iot
     windows-2022
     windows-2025
 )
