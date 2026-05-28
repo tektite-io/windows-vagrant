@@ -309,12 +309,6 @@ build {
   }
 
   provisioner "powershell" {
-    only     = ["hyperv-iso.windows-11-iot-24h2-amd64"]
-    use_pwsh = true
-    script   = "provision-eryph-guest-services.ps1"
-  }
-
-  provisioner "powershell" {
     use_pwsh = true
     script   = "provision-lock-screen-background.ps1"
   }
