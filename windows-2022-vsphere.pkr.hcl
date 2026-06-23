@@ -109,8 +109,8 @@ source "vsphere-iso" "windows-2022-amd64" {
   vm_name                  = "windows-2022-amd64-vsphere"
   shutdown_command         = "shutdown /s /t 0 /f /d p:4:1 /c \"Packer Shutdown\""
   communicator             = "ssh"
-  ssh_password             = "vagrant"
   ssh_username             = "vagrant"
+  ssh_password             = "vagrant"
   ssh_timeout              = "4h"
   ssh_file_transfer_method = "sftp"
 }

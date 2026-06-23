@@ -112,8 +112,8 @@ source "vsphere-iso" "windows-2022-uefi-amd64" {
   boot_command             = ["<up><wait><up><wait><up><wait><up><wait><up><wait><up><wait><up><wait><up><wait><up><wait><up><wait>"]
   shutdown_command         = "shutdown /s /t 0 /f /d p:4:1 /c \"Packer Shutdown\""
   communicator             = "ssh"
-  ssh_password             = "vagrant"
   ssh_username             = "vagrant"
+  ssh_password             = "vagrant"
   ssh_timeout              = "4h"
   ssh_file_transfer_method = "sftp"
 }
