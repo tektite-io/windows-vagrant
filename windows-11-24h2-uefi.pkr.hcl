@@ -202,6 +202,7 @@ source "proxmox-iso" "windows-11-24h2-uefi-amd64" {
   boot_wait         = "1s"
   boot_command      = ["<up><wait><up><wait><up><wait><up><wait><up><wait><up><wait><up><wait><up><wait><up><wait><up><wait>"]
   os                = "win11"
+  communicator      = "ssh"
   ssh_username      = "vagrant"
   ssh_password      = "vagrant"
   ssh_timeout       = "60m"

@@ -208,6 +208,7 @@ source "proxmox-iso" "windows-2022-amd64" {
     ]
   }
   os                = "win11"
+  communicator      = "ssh"
   ssh_username      = "vagrant"
   ssh_password      = "vagrant"
   ssh_timeout       = "60m"
